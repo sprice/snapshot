@@ -39,11 +39,13 @@ const form = ref({
   end: 0,
   snapshot: '',
   metadata: { plugins: {} },
-  type: 'single-choice'
+  type: 'single-choice',
+  visibility: 'open-results'
 });
 const modalOpen = ref(false);
 const modalProposalPluginsOpen = ref(false);
 const modalVotingTypeOpen = ref(false);
+const modalResultsTypeOpen = ref(false);
 const selectedDate = ref('');
 const counter = ref(0);
 const nameForm = ref(null);
@@ -164,7 +166,8 @@ async function loadProposal() {
     start: proposal.start,
     end: proposal.end,
     snapshot: proposal.snapshot,
-    type: proposal.type
+    type: proposal.type,
+    visibility: proposal.visibility
   };
 
   const { network, strategies, plugins } = proposal;
@@ -295,6 +298,9 @@ onMounted(async () => {
           <UiButton class="w-full mb-2" @click="modalVotingTypeOpen = true">
             <span>{{ $t(`voting.${form.type}`) }}</span>
           </UiButton>
+          <UiButton class="w-full mb-2" @click="modalResultsTypeOpen = true">
+            <span>{{ $t(`voting.${form.visibility}`) }}</span>
+          </UiButton>
           <UiButton
             @click="(modalOpen = true), (selectedDate = 'start')"
             class="w-full mb-2"
@@ -355,6 +361,12 @@ onMounted(async () => {
       :open="modalVotingTypeOpen"
       @close="modalVotingTypeOpen = false"
       v-model="form.type"
+    />
+
+    <ModalResultsType
+      :open="modalResultsTypeOpen"
+      @close="modalResultsTypeOpen = false"
+      v-model="form.visibility"
     />
   </teleport>
 </template>

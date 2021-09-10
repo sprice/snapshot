@@ -233,12 +233,18 @@
     "quadratic": "Quadratic voting",
     "ranked-choice": "Ranked choice voting",
     "weighted": "Weighted voting",
+    "results-visibiity": "Results Visibility",
+    "selectResults": "Select Results Type",
+    "open-results": "Open results",
+    "closed-results": "Closed results",
     "description": {
       "single-choice": "Each voter may select only one choice.",
       "approval": "Each voter may select any number of choices.",
       "quadratic": "Each voter may spread voting power across any number of choices. Results are calculated quadratically.",
       "ranked-choice": "Each voter may select and rank any number of choices. Results are calculated by instant-runoff counting method.",
-      "weighted": "Each voter may spread voting power across any number of choices."
+      "weighted": "Each voter may spread voting power across any number of choices.",
+      "open-results": "Vote results are public while voting is open.",
+      "closed-results": "Vote results are hidden while voting is open."
     }
   },
   "safeSnap": {
